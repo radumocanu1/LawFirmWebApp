@@ -1,5 +1,29 @@
 .App {
   text-align: center;
+  background-color: red;
+}
+body{
+  background-image: url("background_image.jpeg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+}
+
+.App-header {
+  background-color: transparent;
+  min-height: 210px;
+  flex-direction: column;
+  align-items: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+  position: fixed; /* adăugat */
+  width: 100%; /* adăugat */
+}
+
+/* adăugat */
+.App-header + * {
+  margin-top: 210px;
 }
 
 .App-logo {
@@ -7,22 +31,29 @@
   pointer-events: none;
 }
 
+.logo {
+  width: 200px;
+  height: 200px;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  /* adăugat */
+  transition: box-shadow 500ms; /* specifică durata tranziției */
+}
+
+.logo:hover {
+  /* adăugat */
+  box-shadow: 15px 15px 10px black; /* specifică dimensiunea, poziția și culoarea umbrei */
+}
+
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
+
 
 .App-link {
   color: #61dafb;
@@ -36,3 +67,14 @@
     transform: rotate(360deg);
   }
 }
+.text {
+  color: black;
+  font-size: 72px;
+  text-align: center;
+  margin-top: 8%;
+  margin-left: 30%;
+  margin-right: 30%;
+  /* modificat */
+  text-shadow: 10px 10px 10px #333333; /* offset-x: 2px, offset-y: 2px, blur-radius: 4px, color: #333333 */
+}
+
