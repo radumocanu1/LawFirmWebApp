@@ -1,15 +1,17 @@
 import AuthForm from './authForm.jsx';
 import { handleLogin } from '../../logic/authLogic.js';
-import { setIsAuthenticated } from './authSlice';
+import { setIsAuthenticated, setUser } from './authSlice';
 import { useDispatch } from 'react-redux';
+import { Navigate, useNavigate } from 'react-router-dom';
 
 const LoginPage = () => {
     const dispatch = useDispatch();
-
-    const handleLoginSubmit = async (email, password) => {
+    const navigate = useNavigate();
+    const handleLoginSubmit = async (_, password, username, ) => {
 
         try {
-            await handleLogin(email, password, handleLoginSuccess);
+            const email = await handleLogin(username, password, handleLoginSuccess);
+            dispatch(setUser({ username: username, email: email}));
         } catch (error) {
             console.error('Error during login:', error);
             if (error.code === "auth/user-not-found" || error.code === "auth/wrong-password" || error.code === "auth/invalid-credential") {
@@ -24,14 +26,16 @@ const LoginPage = () => {
         }
     };
 
-    const handleLoginSuccess = (user) => {
+    const handleLoginSuccess = () => {
         dispatch(setIsAuthenticated());
+
+        navigate("/profile");
     };
 
     return (
         <div className="login-page-container">
             <AuthForm
-                title="Log in"
+                title="Are you already a member? Please log in"
                 buttonText="Log in"
                 login="true"
                 onSubmit={handleLoginSubmit}

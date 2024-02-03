@@ -1,0 +1,46 @@
+/* Stilizare pentru containerul principal */
+.container {
+    display: flex;
+    justify-content: flex-start; /* Aliniaza pe partea stângă a ecranului */
+    align-items: flex-start; /* Aliniaza pe partea stângă a ecranului */
+    height: 100vh; /* Ajustează înălțimea în funcție de necesitățile tale */
+    padding: 200px; /* Adaugă spațiere la marginea containerului */
+}
+
+/* Stilizare pentru card */
+.card {
+    background-color: #73afa9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    padding: 20px;
+    text-align: left; /* Aliniaza textul pe stânga */
+    width: 250px;
+    height: 400px; /* Ajustează lățimea cardului în funcție de preferințe */
+}
+
+/* Stilizare pentru titlul "My Profile" */
+h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+/* Stilizare pentru butonul de logout */
+button {
+    background-color: #f44336;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #d32f2f;
+}
+
+/* Stilizare pentru paragrafele de username și email */
+p {
+    font-size: 18px;
+    margin: 10px 0;
+}
