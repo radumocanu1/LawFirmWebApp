@@ -3,7 +3,7 @@
   background-color: red;
 }
 body{
-  background-image: url("background_image.jpeg");
+  background-image: url("images/background_image.jpeg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
