@@ -1,16 +1,20 @@
 import AuthForm from './authForm.jsx';
 import { handleSignup} from '../../logic/authLogic.js';
-import { setIsAuthenticated } from './authSlice';
+import { setIsAuthenticated, setUser } from './authSlice';
 import { useDispatch } from 'react-redux';
+import {  useNavigate } from 'react-router-dom';
 
 const SignUpPage = () => {
     const dispatch = useDispatch();
+    const navigate = useNavigate();
     const handleSignUpSuccess = (user) => {
         dispatch(setIsAuthenticated());
+        navigate("/profile");
     };
     const handleSignUpSubmit = async (email, password, username) => {
         try {
             await handleSignup(email, password, username, handleSignUpSuccess);
+            dispatch(setUser({ username: username, email: email}));
         } catch (error) {
             console.error('Error during signUp:', error);
             if (error.code === "auth/user-not-found" || error.code === "auth/wrong-password" || error.code === "auth/invalid-credential") {

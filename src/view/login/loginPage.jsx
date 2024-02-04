@@ -2,7 +2,7 @@ import AuthForm from './authForm.jsx';
 import { handleLogin } from '../../logic/authLogic.js';
 import { setIsAuthenticated, setUser } from './authSlice';
 import { useDispatch } from 'react-redux';
-import { Navigate, useNavigate } from 'react-router-dom';
+import {  useNavigate } from 'react-router-dom';
 
 const LoginPage = () => {
     const dispatch = useDispatch();
