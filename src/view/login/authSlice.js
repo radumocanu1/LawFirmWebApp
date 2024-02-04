@@ -6,7 +6,7 @@ const authSlice = createSlice({
         user: null,
         email:null,
         username:null,
-        isAuthenticated: false,
+        isUserSignedIn: false,
         currentRoute: "/home",
     },
     reducers: {
@@ -14,17 +14,17 @@ const authSlice = createSlice({
             const { username, email } = action.payload;
             state.username = username;
             state.email = email;
-            state.isAuthenticated = true;
+            state.isUserSignedIn = true;
         },
         refreshSession: (state) => {
             state.user = null;
-            state.isAuthenticated = false;
+            state.isUserSignedIn = false;
         },
         setCurrentRoute: (state, action) => {
             state.currentRoute = action.payload;
         },
         setIsAuthenticated: (state) => {
-            state.isAuthenticated = true;
+            state.isUserSignedIn = true;
         },
     },
 });

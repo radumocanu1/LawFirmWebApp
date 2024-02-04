@@ -2,13 +2,10 @@ import { auth } from '../config/firebaseConfig';
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
 import { db } from '../config/firebaseConfig';
 import { collection, addDoc,getDocs, query, where } from 'firebase/firestore';
-import { useDispatch} from 'react-redux';
 
 
 const getEmailFromFireStore = async (username) => {
-   
 
-    try {
         const usersCollection = collection(db, 'user');
         const q = query(usersCollection, where('username', '==', username));
         const querySnapshot = await getDocs(q);
@@ -19,10 +16,7 @@ const getEmailFromFireStore = async (username) => {
         } else {
             return null;
         }
-    } catch (error) {
-        console.error('Error getting email from Firestore:', error);
-        throw error;
-    }
+
 };
 const  doesUsernameExist = async (username) => {
         const usersCollection = collection(db, 'user');
@@ -40,7 +34,6 @@ export const handleSignup = async (email, password, username, onSuccess) => {
             email: email,
         });
         const user = userCredential.user;
-        console.log("user registered");
         onSuccess(user);
 }
 
@@ -52,7 +45,6 @@ export const handleLogin = async (username, password, onSuccess) => {
         }
         const userCredential = await signInWithEmailAndPassword(auth, email, password);
         const user = userCredential.user;
-        console.log("User signed in ");
 
         onSuccess(user);
         return email;

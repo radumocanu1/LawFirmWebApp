@@ -17,11 +17,11 @@ body{
   align-items: center;
   font-size: calc(10px + 2vmin);
   color: white;
-  position: fixed; /* adăugat */
-  width: 100%; /* adăugat */
+  position: fixed;
+  width: 100%; 
 }
 
-/* adăugat */
+
 .App-header + * {
   margin-top: 210px;
 }
@@ -37,13 +37,11 @@ body{
   position: absolute;
   top: 10px;
   left: 10px;
-  /* adăugat */
-  transition: box-shadow 500ms; /* specifică durata tranziției */
+  transition: box-shadow 500ms; 
 }
 
 .logo:hover {
-  /* adăugat */
-  box-shadow: 15px 15px 10px black; /* specifică dimensiunea, poziția și culoarea umbrei */
+  box-shadow: 15px 15px 10px black; 
 }
 
 
@@ -74,7 +72,6 @@ body{
   margin-top: 8%;
   margin-left: 30%;
   margin-right: 30%;
-  /* modificat */
-  text-shadow: 10px 10px 10px #333333; /* offset-x: 2px, offset-y: 2px, blur-radius: 4px, color: #333333 */
+  text-shadow: 10px 10px 10px #333333;
 }
 

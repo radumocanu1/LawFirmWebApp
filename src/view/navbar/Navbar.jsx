@@ -1,11 +1,10 @@
 import {Link} from "react-router-dom";
 import './Navbar.css'
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import logo from '../../images/logo.jpeg'
 
 export const Navbar = () => {
-    const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
-    const dispatch = useDispatch();
+    const isUserSignedIn = useSelector((state) => state.auth.isUserSignedIn);
     return (
         
         <nav className="navbar">
@@ -16,14 +15,15 @@ export const Navbar = () => {
             </Link>
             <ul className="nav-list">
                 <li><Link to="/">Home</Link></li>
-                <li><Link to="/about">About us</Link></li>
+                <li><Link to="/question">Ask a question</Link></li>
                 <li><Link to="/contact">Contact</Link></li>
-                {isAuthenticated ? (
+                {isUserSignedIn ? (
                     <>
+                        <li><Link to="/questions">Public questions</Link></li>
                         <li><Link to="/profile">My Profile</Link></li>
                     </>
                 ) : null}
-                 {!isAuthenticated ? (
+                 {!isUserSignedIn ? (
                     <>
                         <li><Link to="/login">Log in</Link></li>
                     </>

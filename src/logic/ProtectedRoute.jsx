@@ -3,12 +3,9 @@ import { Navigate, Outlet } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 const ProtectedRoute = (props) => {
-    const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
-    console.log(isAuthenticated);
+    const isUserSignedIn = useSelector((state) => state.auth.isUserSignedIn);
 
-    const isAllowed = isAuthenticated;
-
-    if (!isAllowed) {
+    if (!isUserSignedIn) {
         return <Navigate to={props.redirectTo} replace />;
     }
 

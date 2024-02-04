@@ -1,6 +1,6 @@
 import React from 'react';
-import MapComponent from './MapComponent'; // Adjust the path based on your project structure
-import './ContactPage.css'; // Add any additional styling if needed
+import MapComponent from './MapComponent'; 
+import './ContactPage.css'; 
 
 const ContactPage = () => {
   return (
